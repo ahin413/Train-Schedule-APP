@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbo">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Train Schedule</h1>
+                <p class="lead"></p>
+            </div>
+            <img src="Images/infrastructure-trains-chicago-jamey-stillings.jpg" alt="1000x800"
+                style="width:1143px;height:300px;">
+        </div>
+    </div>
+    <br>
+    <div class="schedule">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (Min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="Add">
+        <h5>Add Train</h5>
+    </div>
+    <div class="Input">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Train Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Destination</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">First Train Time HH:mm-Military Time</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Frequency (min)</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="btn"></div> <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+    </div>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBjRyHOGQ2OkrENe0oG6i41hiXD7NzPEtk",
+            authDomain: "train-schedule-app-48a5e.firebaseapp.com",
+            databaseURL: "https://train-schedule-app-48a5e.firebaseio.com",
+            projectId: "train-schedule-app-48a5e",
+            storageBucket: "",
+            messagingSenderId: "13718150236",
+            appId: "1:13718150236:web:d925990c4c89df286b1a99"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var database = firebase.database();
+
+        var time = moment().format();
+
+        console.log(time);
+       
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/style.css> </body> </html>
