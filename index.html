@@ -35,7 +35,7 @@
     </div>
     <br>
     <div class="schedule">
-        <table class="table table-striped" id= "trainTable">
+        <table class="table table-striped" id="trainTable">
             <thead>
                 <tr>
                     <th scope="col">Train Name</th>
@@ -47,7 +47,7 @@
             </thead>
 
             <tbody>
-             
+
             </tbody>
         </table>
     </div>
@@ -96,7 +96,7 @@
 
         var database = firebase.database();
 
-        var time = moment().format();
+        var time = moment();
 
         console.log(time);
 
@@ -143,7 +143,23 @@
             var frequency = childSnapshot.val().howOften;
             //console.log(childSnapshot.val());
 
-            $("#trainTable > tbody").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + firstTrain + "</td><td>" + frequency + "</td><tr>");
+            var firstTrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
+            console.log(firstTrainConverted);
+            var currentTime = moment();
+
+            console.log(currentTime);
+            var timeDiff = moment().diff(moment(firstTrainConverted), "minutes");
+            console.log(timeDiff);
+            var waitTime = timeDiff % frequency;
+            console.log(waitTime);
+            var minLeft = frequency - waitTime;
+            var trainArrival = moment().add(minLeft, "minutes");
+            var formatArrival = moment(trainArrival).format("HH:mm");
+
+
+
+
+            $("#trainTable > tbody").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + formatArrival + "</td><td>" + minLeft + "</td><tr>");
         });
 
     </script>
