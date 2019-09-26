@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedule</title>
-    
+
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -30,12 +30,12 @@
                 <h1 class="display-4">Train Schedule</h1>
                 <p class="lead"></p>
             </div>
-            
+
         </div>
     </div>
     <br>
     <div class="schedule">
-        <table class="table table-striped">
+        <table class="table table-striped" id= "trainTable">
             <thead>
                 <tr>
                     <th scope="col">Train Name</th>
@@ -47,28 +47,7 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+             
             </tbody>
         </table>
     </div>
@@ -122,24 +101,22 @@
         console.log(time);
 
 
-        $("#click").on("click", function(event) {
+        $("#click").on("click", function (event) {
 
             event.preventDefault();
 
             var train = $("#train").val().trim();
-            console.log(train)
             var destination = $("#destination").val();
             var firstTrain = $("#firstTrain").val();
             var frequency = $("#frequency").val();
-            console.log(destination);
-        console.log(firstTrain);
-        console.log(frequency);
-        console.log($);
-        console.log(train);
 
-       var arrivalTime =  moment().format("HH:mm");
-    console.log(moment().diff(firstTrain, "minutes"));
-       console.log(arrivalTime);
+            console.log(destination);
+            console.log(firstTrain);
+            console.log(frequency);
+            console.log($);
+            console.log(train);
+
+
             var addTrain = {
                 trainName: train,
                 where: destination,
@@ -148,7 +125,13 @@
             }
 
             database.ref().push(addTrain);
-            console.log(addTrain)
+            console.log(addTrain);
+
+            $("#train").val("")
+            $("#firstTrain").val("")
+            $("#destination").val("")
+            $("#frequency").val("")
+
         });
 
 
@@ -158,6 +141,9 @@
             var destination = childSnapshot.val().where;
             var firstTrain = childSnapshot.val().first;
             var frequency = childSnapshot.val().howOften;
+            //console.log(childSnapshot.val());
+
+            $("#trainTable > tbody").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + firstTrain + "</td><td>" + frequency + "</td><tr>");
         });
-    
+
     </script>
