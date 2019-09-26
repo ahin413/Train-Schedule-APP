@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/style.css> </body> </html> </head>
+    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/assests/style.css> </body> </html> </head>
         <body>
 
     <div class="jumbo">
@@ -155,9 +155,6 @@
             var minLeft = frequency - waitTime;
             var trainArrival = moment().add(minLeft, "minutes");
             var formatArrival = moment(trainArrival).format("HH:mm");
-
-
-
 
             $("#trainTable > tbody").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + formatArrival + "</td><td>" + minLeft + "</td><tr>");
         });
