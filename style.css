@@ -7,26 +7,34 @@
     margin-left: 20px;
     padding: 20px;
     background-color: rgb(245, 206, 79);
-};
+}
 
 
 h5 {
     margin-left: 20px;
-};
+    color:  rgb(245, 206, 79);
+}
 
 .btn  {
-    color:  rgb(201, 171, 39);
-};
+    background-color:  rgb(185, 152, 6);
+}
 
 .jumbo {
     margin-left: 20px;
     margin-right: 20px;
-    padding-left: 20px;
-    padding-left:20px;
+    color:  rgb(245, 206, 79);
+}
 
-};
 
-.Add {
-    margin-left: 20px;
-};
 
+.schedule {
+    margin-left:20px;
+    margin-right: 20px;
+    border-style: solid;
+    background-color:  rgb(245, 206, 79);
+
+
+}
+body{
+    background: url("Images/background-brown-carpentry-326311.jpg");  
+}

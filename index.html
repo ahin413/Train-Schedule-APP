@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Train Schedule</title>
+    
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-</head>
 
-<body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/style.css> </body> </html> </head>
+        <body>
 
     <div class="jumbo">
         <div class="jumbotron jumbotron-fluid">
@@ -19,8 +30,7 @@
                 <h1 class="display-4">Train Schedule</h1>
                 <p class="lead"></p>
             </div>
-            <img src="Images/infrastructure-trains-chicago-jamey-stillings.jpg" alt="1000x800"
-                style="width:1143px;height:300px;">
+            
         </div>
     </div>
     <br>
@@ -38,14 +48,14 @@
 
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -53,7 +63,7 @@
 
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -72,22 +82,22 @@
     <div class="Input">
         <form>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Train Name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for=>Train Name</label>
+                <input type="text" class="form-control" id="train" placeholder="">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Destination</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for=>Destination</label>
+                <input type="text" class="form-control" id="destination" placeholder="">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">First Train Time HH:mm-Military Time</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for=>First Train Time HH:mm-Military Time</label>
+                <input type="text" class="form-control" id="firstTrain" placeholder="">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Frequency (min)</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for=>Frequency (min)</label>
+                <input type="text" class="form-control" id="frequency" placeholder="">
             </div>
-            <div class="btn"></div> <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="btn"></div> <button type="submit" class="btn btn-primary" id="click">Submit</button>
     </div>
     </form>
     </div>
@@ -110,18 +120,44 @@
         var time = moment().format();
 
         console.log(time);
-       
 
-    </script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+        $("#click").on("click", function(event) {
+
+            event.preventDefault();
+
+            var train = $("#train").val().trim();
+            console.log(train)
+            var destination = $("#destination").val();
+            var firstTrain = $("#firstTrain").val();
+            var frequency = $("#frequency").val();
+            console.log(destination);
+        console.log(firstTrain);
+        console.log(frequency);
+        console.log($);
+        console.log(train);
+
+       var arrivalTime =  moment().format("HH:mm");
+    console.log(moment().diff(firstTrain, "minutes"));
+       console.log(arrivalTime);
+            var addTrain = {
+                trainName: train,
+                where: destination,
+                howOften: frequency,
+                first: firstTrain
+            }
+
+            database.ref().push(addTrain);
+            console.log(addTrain)
+        });
+
+
+        database.ref().on("child_added", function (childSnapshot) {
+
+            var train = childSnapshot.val().trainName;
+            var destination = childSnapshot.val().where;
+            var firstTrain = childSnapshot.val().first;
+            var frequency = childSnapshot.val().howOften;
+        });
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/style.css> </body> </html>
+    </script>
