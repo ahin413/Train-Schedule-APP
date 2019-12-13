@@ -1,40 +1,82 @@
 
 
 .Input {
+    margin-top: 40px;
+    margin-left:auto;
+    margin-right: auto;
     border-style: solid;
-    border-color: rgb(201, 171, 39);
-    margin-right: 20px;
-    margin-left: 20px;
-    padding: 20px;
-    background-color: rgb(245, 206, 79);
-}
+    background-color:  rgb(20, 80, 25);
+    opacity:80%;
+    color:rgb(148, 147, 147);
+    font-family:'Yeseva One', cursive;
+    height:500px;
+    width:600px;
+    padding-bottom: 50px;
 
+}
 
 h5 {
-    margin-left: 20px;
-    color:  rgb(245, 206, 79);
+    color: rgb(148, 147, 147);
+    font-family:'Yeseva One', cursive;
+    text-align: center;
+    font-size:36px;
 }
-
-.btn  {
-    background-color:  rgb(185, 152, 6);
-}
-
-.jumbo {
-    margin-left: 20px;
-    margin-right: 20px;
-    color:  rgb(245, 206, 79);
-}
-
-
 
 .schedule {
+    margin-top: 40px;
     margin-left:20px;
     margin-right: 20px;
     border-style: solid;
-    background-color:  rgb(245, 206, 79);
+    background-color:  rgb(20, 80, 25);
+    opacity:80%;
+    color:whitesmoke;
 
 
 }
 body{
-    background: url(/Users/annemariehin/bootcamp/Train-Schedule-APP/Images/infrastructure-trains-chicago-jamey-stillings.jpg);  
+   background: url(/Users/annemariehin/bootcamp/Train-Schedule-APP/Images/blue-wall-wooden-wood-planks-21387.jpg);
+}
+
+.jumbotron.jumbotron-fluid{
+    background: url(/Users/annemariehin/bootcamp/Train-Schedule-APP/Images/bridge-clouds-cloudy-dark-clouds-555868.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+   
+height: 400px;
+    text-align: bottom;
+}
+
+h1{
+    font-family:'Yeseva One', cursive;
+    font: bold;
+    text-align: center;
+    color: rgb(148, 147, 147);
+}
+#trainTable{
+    color: rgb(148, 147, 147);
+    font-family:'Yeseva One', cursive;
+    text-align: center;
+}
+.form-control{
+    width: 400px;
+    background-color:rgb(148, 147, 147);
+    padding-left:200px;
+    align-content: center;
+    
+}
+.btn.btn-primary{
+    background-color:rgb(148, 147, 147);
+    border: 0px;
+   margin-left:220px;
+}
+
+.label{
+    padding-left:100px;
+}
+
+.form-group{
+    padding-top: 20px;
+    align-content: center;
+    padding-left: 98px;
 }

@@ -21,19 +21,32 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href=/Users/annemariehin/bootcamp/Train-Schedule-APP/assests/style.css> </body> </html> </head>
+        <link href="https://fonts.googleapis.com/css?family=Cinzel:900|Martel:900|Yeseva+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href=./assests/style.css> </body> </html> </head>
         <body>
 
     <div class="jumbo">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Train Schedule</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                
                 <p class="lead"></p>
             </div>
 
         </div>
     </div>
     <br>
+    <h1 class="display-4">Train Schedule</h1>
     <div class="schedule">
         <table class="table table-striped" id="trainTable">
             <thead>
@@ -76,10 +89,13 @@
                 <label for=>Frequency (min)</label>
                 <input type="text" class="form-control" id="frequency" placeholder="">
             </div>
+            <br>
             <div class="btn"></div> <button type="submit" class="btn btn-primary" id="click">Submit</button>
     </div>
     </form>
     </div>
+    <br>
+    <br>
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -147,11 +163,11 @@
             console.log(firstTrainConverted);
             var currentTime = moment();
 
-            console.log(currentTime);
+            //console.log(currentTime);
             var timeDiff = moment().diff(moment(firstTrainConverted), "minutes");
-            console.log(timeDiff);
+            //console.log(timeDiff);
             var waitTime = timeDiff % frequency;
-            console.log(waitTime);
+            //console.log(waitTime);
             var minLeft = frequency - waitTime;
             var trainArrival = moment().add(minLeft, "minutes");
             var formatArrival = moment(trainArrival).format("HH:mm");
